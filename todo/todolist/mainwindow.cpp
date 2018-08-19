@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include <iostream>
+ using namespace std;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -16,10 +17,17 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_saveBtn_clicked()
 {
-    QString add_text;
-    add_text=ui -> addTodo -> text();
     ui->tableWidget->insertRow( ui->tableWidget->rowCount());
-    ui->tableWidget->setItem   ( ui->tableWidget->rowCount()-1,
-                             0,
-                             new QTableWidgetItem(add_text));
+    ui->tableWidget->setItem ( ui->tableWidget->rowCount()-1,0,
+                             new QTableWidgetItem(ui -> addTodo -> text()));
+
+    QProgressBar *myslider = new QProgressBar ();
+    myslider->setValue(ui->mainslider->value());
+
+
+    ui->tableWidget->setItem ( ui->tableWidget->rowCount()-1,1,
+                             new QTableWidgetItem(myslider));
+    ui->tableWidget->setItem ( ui->tableWidget->rowCount()-1,1,
+                             new QSliderWidgetItem(myslider));
+    qDebug() << ui->mainslider->value();
 }

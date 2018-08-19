@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCommandLinkButton>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -30,14 +31,16 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QPushButton *saveBtn;
-    QLineEdit *addTodo;
-    QSlider *horizontalSlider;
-    QPushButton *addTask;
-    QPushButton *delete_2;
     QLabel *label;
     QCommandLinkButton *commandLinkButton;
     QTableWidget *tableWidget;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout;
+    QLineEdit *addTodo;
+    QSlider *mainslider;
+    QPushButton *addTask;
+    QPushButton *saveBtn;
+    QPushButton *delete_2;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -46,25 +49,9 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(980, 381);
+        MainWindow->resize(954, 381);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        saveBtn = new QPushButton(centralWidget);
-        saveBtn->setObjectName(QStringLiteral("saveBtn"));
-        saveBtn->setGeometry(QRect(750, 110, 89, 31));
-        addTodo = new QLineEdit(centralWidget);
-        addTodo->setObjectName(QStringLiteral("addTodo"));
-        addTodo->setGeometry(QRect(30, 100, 351, 41));
-        horizontalSlider = new QSlider(centralWidget);
-        horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
-        horizontalSlider->setGeometry(QRect(390, 110, 221, 21));
-        horizontalSlider->setOrientation(Qt::Horizontal);
-        addTask = new QPushButton(centralWidget);
-        addTask->setObjectName(QStringLiteral("addTask"));
-        addTask->setGeometry(QRect(650, 110, 89, 31));
-        delete_2 = new QPushButton(centralWidget);
-        delete_2->setObjectName(QStringLiteral("delete_2"));
-        delete_2->setGeometry(QRect(850, 110, 89, 31));
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(30, 0, 101, 41));
@@ -72,16 +59,52 @@ public:
         commandLinkButton->setObjectName(QStringLiteral("commandLinkButton"));
         commandLinkButton->setGeometry(QRect(790, 10, 141, 41));
         tableWidget = new QTableWidget(centralWidget);
-        if (tableWidget->columnCount() < 1)
-            tableWidget->setColumnCount(1);
+        if (tableWidget->columnCount() < 2)
+            tableWidget->setColumnCount(2);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(1, __qtablewidgetitem1);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(30, 160, 641, 141));
+        tableWidget->setGeometry(QRect(20, 170, 921, 141));
+        widget = new QWidget(centralWidget);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(20, 80, 921, 71));
+        horizontalLayout = new QHBoxLayout(widget);
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        addTodo = new QLineEdit(widget);
+        addTodo->setObjectName(QStringLiteral("addTodo"));
+
+        horizontalLayout->addWidget(addTodo);
+
+        mainslider = new QSlider(widget);
+        mainslider->setObjectName(QStringLiteral("mainslider"));
+        mainslider->setOrientation(Qt::Horizontal);
+
+        horizontalLayout->addWidget(mainslider);
+
+        addTask = new QPushButton(widget);
+        addTask->setObjectName(QStringLiteral("addTask"));
+
+        horizontalLayout->addWidget(addTask);
+
+        saveBtn = new QPushButton(widget);
+        saveBtn->setObjectName(QStringLiteral("saveBtn"));
+
+        horizontalLayout->addWidget(saveBtn);
+
+        delete_2 = new QPushButton(widget);
+        delete_2->setObjectName(QStringLiteral("delete_2"));
+
+        horizontalLayout->addWidget(delete_2);
+
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 980, 22));
+        menuBar->setGeometry(QRect(0, 0, 954, 22));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -98,13 +121,15 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        saveBtn->setText(QApplication::translate("MainWindow", "SAVE", nullptr));
-        addTask->setText(QApplication::translate("MainWindow", "add task", nullptr));
-        delete_2->setText(QApplication::translate("MainWindow", "delete", nullptr));
         label->setText(QApplication::translate("MainWindow", "TODO LIST", nullptr));
         commandLinkButton->setText(QApplication::translate("MainWindow", "develop by eheeku", nullptr));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "List", nullptr));
+        ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "list", nullptr));
+        QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
+        ___qtablewidgetitem1->setText(QApplication::translate("MainWindow", "progress", nullptr));
+        addTask->setText(QApplication::translate("MainWindow", "add task", nullptr));
+        saveBtn->setText(QApplication::translate("MainWindow", "SAVE", nullptr));
+        delete_2->setText(QApplication::translate("MainWindow", "delete", nullptr));
     } // retranslateUi
 
 };
