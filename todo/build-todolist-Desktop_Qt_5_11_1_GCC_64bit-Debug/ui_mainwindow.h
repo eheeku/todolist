@@ -72,8 +72,12 @@ public:
         commandLinkButton->setObjectName(QStringLiteral("commandLinkButton"));
         commandLinkButton->setGeometry(QRect(790, 10, 141, 41));
         tableWidget = new QTableWidget(centralWidget);
+        if (tableWidget->columnCount() < 1)
+            tableWidget->setColumnCount(1);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(40, 170, 641, 141));
+        tableWidget->setGeometry(QRect(30, 160, 641, 141));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -99,6 +103,8 @@ public:
         delete_2->setText(QApplication::translate("MainWindow", "delete", nullptr));
         label->setText(QApplication::translate("MainWindow", "TODO LIST", nullptr));
         commandLinkButton->setText(QApplication::translate("MainWindow", "develop by eheeku", nullptr));
+        QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
+        ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "List", nullptr));
     } // retranslateUi
 
 };
