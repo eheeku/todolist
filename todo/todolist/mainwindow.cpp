@@ -21,13 +21,12 @@ void MainWindow::on_saveBtn_clicked()
     ui->tableWidget->setItem ( ui->tableWidget->rowCount()-1,0,
                              new QTableWidgetItem(ui -> addTodo -> text()));
 
-    QProgressBar *myslider = new QProgressBar ();
-    myslider->setValue(ui->mainslider->value());
+//    QProgressBar *myslider = new QProgressBar ();
+//    myslider->setValue(ui->mainslider->value());
 
 
-    ui->tableWidget->setItem ( ui->tableWidget->rowCount()-1,1,
-                             new QTableWidgetItem(myslider));
-    ui->tableWidget->setItem ( ui->tableWidget->rowCount()-1,1,
-                             new QSliderWidgetItem(myslider));
+  //  ui->tableWidget->setItem ( ui->tableWidget->rowCount()-1,1,
+    //                         new QTableWidgetItem(myslider));
+
     qDebug() << ui->mainslider->value();
 }
