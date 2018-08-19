@@ -15,6 +15,11 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+//    void on_addTodo_textEdited(const QString &arg1);
+
+    void on_saveBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
