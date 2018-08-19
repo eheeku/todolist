@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCommandLinkButton>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
@@ -19,6 +20,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
@@ -35,7 +37,7 @@ public:
     QPushButton *delete_2;
     QLabel *label;
     QCommandLinkButton *commandLinkButton;
-    QLabel *label_2;
+    QTableWidget *tableWidget;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -69,9 +71,9 @@ public:
         commandLinkButton = new QCommandLinkButton(centralWidget);
         commandLinkButton->setObjectName(QStringLiteral("commandLinkButton"));
         commandLinkButton->setGeometry(QRect(790, 10, 141, 41));
-        label_2 = new QLabel(centralWidget);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(80, 190, 67, 17));
+        tableWidget = new QTableWidget(centralWidget);
+        tableWidget->setObjectName(QStringLiteral("tableWidget"));
+        tableWidget->setGeometry(QRect(40, 170, 641, 141));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -97,7 +99,6 @@ public:
         delete_2->setText(QApplication::translate("MainWindow", "delete", nullptr));
         label->setText(QApplication::translate("MainWindow", "TODO LIST", nullptr));
         commandLinkButton->setText(QApplication::translate("MainWindow", "develop by eheeku", nullptr));
-        label_2->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
     } // retranslateUi
 
 };

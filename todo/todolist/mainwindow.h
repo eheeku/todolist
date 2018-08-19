@@ -17,12 +17,12 @@ public:
     ~MainWindow();
 
 private slots:
-//    void on_addTodo_textEdited(const QString &arg1);
 
     void on_saveBtn_clicked();
 
 private:
     Ui::MainWindow *ui;
 };
+
 
 #endif // MAINWINDOW_H
