@@ -224,6 +224,7 @@ DIST          = ../../../../Qt/5.11.1/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.11.1/gcc_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/5.11.1/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../../Qt/5.11.1/gcc_64/mkspecs/features/spec_post.prf \
+		../todolist/.qmake.stash \
 		../../../../Qt/5.11.1/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.11.1/gcc_64/mkspecs/features/toolchain.prf \
 		../../../../Qt/5.11.1/gcc_64/mkspecs/features/default_pre.prf \
@@ -425,6 +426,7 @@ Makefile: ../todolist/todolist.pro ../../../../Qt/5.11.1/gcc_64/mkspecs/linux-g+
 		../../../../Qt/5.11.1/gcc_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/5.11.1/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../../Qt/5.11.1/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../Qt/5.11.1/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.11.1/gcc_64/mkspecs/features/toolchain.prf \
 		../../../../Qt/5.11.1/gcc_64/mkspecs/features/default_pre.prf \
@@ -618,6 +620,7 @@ Makefile: ../todolist/todolist.pro ../../../../Qt/5.11.1/gcc_64/mkspecs/linux-g+
 ../../../../Qt/5.11.1/gcc_64/mkspecs/features/qt_config.prf:
 ../../../../Qt/5.11.1/gcc_64/mkspecs/linux-g++/qmake.conf:
 ../../../../Qt/5.11.1/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../Qt/5.11.1/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt/5.11.1/gcc_64/mkspecs/features/toolchain.prf:
 ../../../../Qt/5.11.1/gcc_64/mkspecs/features/default_pre.prf:
@@ -799,6 +802,7 @@ moc_mainwindow.cpp: ../../../../Qt/5.11.1/gcc_64/include/QtWidgets/QMainWindow \
 		../../../../Qt/5.11.1/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../../Qt/5.11.1/gcc_64/include/QtGui/qicon.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtCore/QDebug \
 		../todolist/mainwindow.h \
 		moc_predefs.h \
 		../../../../Qt/5.11.1/gcc_64/bin/moc
@@ -932,6 +936,7 @@ main.o: ../todolist/main.cpp ../todolist/mainwindow.h \
 		../../../../Qt/5.11.1/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../../Qt/5.11.1/gcc_64/include/QtGui/qicon.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtCore/QDebug \
 		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/QApplication \
 		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qapplication.h \
 		../../../../Qt/5.11.1/gcc_64/include/QtCore/qcoreapplication.h \
@@ -1048,7 +1053,60 @@ mainwindow.o: ../todolist/mainwindow.cpp ../todolist/mainwindow.h \
 		../../../../Qt/5.11.1/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../../Qt/5.11.1/gcc_64/include/QtGui/qicon.h \
-		ui_mainwindow.h
+		../../../../Qt/5.11.1/gcc_64/include/QtCore/QDebug \
+		ui_mainwindow.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtCore/QVariant \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/QApplication \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qapplication.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtCore/qeventloop.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtGui/qguiapplication.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtGui/qinputmethod.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/QCommandLinkButton \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qcommandlinkbutton.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/QHeaderView \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qframe.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtGui/qvalidator.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtCore/qregularexpression.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qslider.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qstyle.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/QLabel \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qlabel.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/QLineEdit \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qlineedit.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtGui/qtextcursor.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtGui/qtextformat.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtGui/qpen.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtGui/qtextoption.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/QMenuBar \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qmenubar.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qmenu.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qaction.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/QPushButton \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/QSlider \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/QStatusBar \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qstatusbar.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/QTableWidget \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qtablewidget.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qtableview.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/QToolBar \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/qtoolbar.h \
+		../../../../Qt/5.11.1/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../todolist/mainwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
