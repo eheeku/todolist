@@ -30,16 +30,15 @@ void MainWindow::on_addTask_clicked()
     QProgressBar *mybar = new QProgressBar();
     mybar ->setValue(ui->mainslider->value());
     ui->tableWidget->setCellWidget( ui -> tableWidget -> rowCount()-1 ,1 , mybar);
-    //ui->tableWidgetItem->setBlocked(True);
-    ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    //qDebug() << ui->mainslider->value();
+    //ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
 }
 
 void MainWindow::on_tableWidget_cellClicked(int row, int column)
 {
     QTableWidgetItem *editItem = ui->tableWidget->item(row,column);
-
-    qDebug() << editItem;
+    QTableWidgetItem *editProgressBar = ui->tableWidget->item(row,column+1);
+    qDebug() << editItem<< editProgressBar;
 }
 
 void MainWindow::on_saveBtn_clicked()
