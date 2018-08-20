@@ -8,8 +8,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->tableWidget->setColumnWidth(0,this->width()*2/3);
-
+ //   ui->tableWidget->setColumnWidth(0,this->width()*2/3);
+     ui->tableWidget->horizontalHeader()->setResizeContentsPrecision(QHeaderView::ResizeToContents);
 }
 
 MainWindow::~MainWindow()
@@ -17,7 +17,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_saveBtn_clicked()
+void MainWindow::on_addTask_clicked()
 {
     ui->tableWidget->insertRow( ui->tableWidget->rowCount());
     // colum 1
@@ -29,5 +29,16 @@ void MainWindow::on_saveBtn_clicked()
     mybar ->setValue(ui->mainslider->value());
     ui->tableWidget->setCellWidget( ui -> tableWidget -> rowCount()-1 ,1 , mybar);
 
-    qDebug() << ui->mainslider->value();
+    //qDebug() << ui->mainslider->value();
 }
+
+void MainWindow::on_tableWidget_cellClicked(int row, int column)
+{
+
+}
+
+void MainWindow::on_saveBtn_clicked()
+{
+
+}
+

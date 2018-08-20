@@ -22,6 +22,8 @@ private slots:
 
     void on_saveBtn_clicked();
 
+    void on_addTask_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
