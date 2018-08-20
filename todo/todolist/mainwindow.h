@@ -22,6 +22,10 @@ private slots:
 
     void on_saveBtn_clicked();
 
+    void on_addTask_clicked();
+
+    void on_tableWidget_cellClicked(int row, int column);
+
 private:
     Ui::MainWindow *ui;
 };
