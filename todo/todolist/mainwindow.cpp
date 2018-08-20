@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <qprogressbar.h>
 #include <iostream>
  using namespace std;
 MainWindow::MainWindow(QWidget *parent) :
@@ -7,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
 
 }
 
@@ -18,15 +20,14 @@ MainWindow::~MainWindow()
 void MainWindow::on_saveBtn_clicked()
 {
     ui->tableWidget->insertRow( ui->tableWidget->rowCount());
+    // colum 1
     ui->tableWidget->setItem ( ui->tableWidget->rowCount()-1,0,
                              new QTableWidgetItem(ui -> addTodo -> text()));
 
-//    QProgressBar *myslider = new QProgressBar ();
-//    myslider->setValue(ui->mainslider->value());
-
-
-  //  ui->tableWidget->setItem ( ui->tableWidget->rowCount()-1,1,
-    //                         new QTableWidgetItem(myslider));
+    // colum 2
+    QProgressBar *mybar = new QProgressBar();
+    mybar ->setValue(ui->mainslider->value());
+    ui->tableWidget->setCellWidget( ui -> tableWidget -> rowCount()-1 ,1 , mybar);
 
     qDebug() << ui->mainslider->value();
 }
