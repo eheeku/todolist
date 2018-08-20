@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    ui->tableWidget->setColumnWidth(0,this->width()*2/3);
 
 }
 
