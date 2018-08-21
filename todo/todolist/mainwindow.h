@@ -20,13 +20,13 @@ public:
 
 private slots:
 
-    void on_saveBtn_clicked();
 
     void on_addTask_clicked();
 
-    void on_tableWidget_cellClicked(int row);
+    int on_tableWidget_cellClicked(int row);
 
-    bool on_delete_2_clicked();
+
+    void on_removeBtn_clicked();
 
 private:
     Ui::MainWindow *ui;
