@@ -30,8 +30,10 @@ private slots:
 
     void on_saveBtn_clicked();
 
+
 private:
     Ui::MainWindow *ui;
+    //void createMenus();
 };
 
 

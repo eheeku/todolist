@@ -1,7 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <qprogressbar.h>
+//#include <QMenuBar>
 #include <iostream>
+
+#include <qprogressbar.h>
+#include <QFile>
+
  using namespace std;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -11,8 +15,6 @@ MainWindow::MainWindow(QWidget *parent) :
  //   ui->tableWidget->setColumnWidth(0,this->width()*2/3);
      ui->tableWidget->horizontalHeader()->setResizeContentsPrecision(QHeaderView::ResizeToContents);
      ui->tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
-
-
      //table resize
      ui->tableWidget->setColumnWidth(0,305);
      ui->tableWidget->setColumnWidth(1,600);
@@ -70,3 +72,13 @@ void MainWindow::on_saveBtn_clicked()
     ui->tableWidget->setItem ( ui->tableWidget->currentRow(), 1,
                              new QTableWidgetItem(ui -> addTodo -> text()));
 }
+
+
+
+/*
+void MainWindow::createMenus(){
+    //menubar
+    QMenuBar *menuBar = new QMenuBar (0);
+
+}
+*/
