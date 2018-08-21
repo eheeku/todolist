@@ -11,6 +11,10 @@ MainWindow::MainWindow(QWidget *parent) :
  //   ui->tableWidget->setColumnWidth(0,this->width()*2/3);
      ui->tableWidget->horizontalHeader()->setResizeContentsPrecision(QHeaderView::ResizeToContents);
      ui->tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+
+     //table resize
+     ui->tableWidget->setColumnWidth(0,305);
+     ui->tableWidget->setColumnWidth(1,600);
 }
 
 MainWindow::~MainWindow()
