@@ -20,7 +20,6 @@ MainWindow::MainWindow(QWidget *parent) :
      ui->tableWidget->setColumnWidth(1,600);
 
      read_file();
-     write_file();
 }
 
 MainWindow::~MainWindow()
@@ -45,7 +44,8 @@ void MainWindow::read_file()
     QStringList textList;
     while(!OpenFile.atEnd())
     {
-        textList = OpenFile.readLine().split(" ");
+        textList = OpenFile.readLine().split("|");
+
         ui->tableWidget->insertRow( ui->tableWidget->rowCount());
 
         // colum 1
@@ -65,18 +65,31 @@ void MainWindow::read_file()
 }
 
 
+QString StrToQString(char *str){
+    return QString::fromUtf8(str,strlen(str));
+}
 
 void MainWindow::write_file()
 {
     QString ApplicationPath=QApplication::applicationDirPath();
     QFile File(ApplicationPath+"/../todolist/DataFile/outputData.txt");
 
-    File.open(QFile::WriteOnly|QFile::Append|QFile::Text);
+    File.open(QFile::WriteOnly|QFile::Text);
     QTextStream SaveFile(&File);
-    SaveFile <<"hello"<<"\n" <<endl;
-    SaveFile <<"한글깨짐"<<"\n" << endl;
-    File.close();
 
+    int i = 0;
+    while (ui->tableWidget->rowCount()!=i){
+        //column0 edit
+        int val = ((qobject_cast<QProgressBar*>(ui->tableWidget->cellWidget(i,0)))->value());
+
+        //colum1 edit
+        QTableWidgetItem *editItem1 = ui->tableWidget->item(i,1);
+        SaveFile <<val<<"|"<<editItem1->text() << endl;
+        i++;
+    }
+
+    File.close();
+    qDebug()<<"success file write"<<endl;
 }
 
 void MainWindow::on_addTask_clicked()
@@ -91,7 +104,7 @@ void MainWindow::on_addTask_clicked()
     ui->tableWidget->setItem ( ui->tableWidget->rowCount()-1, 1,
                              new QTableWidgetItem(ui -> addTodo -> text()));
     ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
-
+    write_file();
 
     //debug
     qDebug() << "success add list"<< endl;
@@ -109,7 +122,8 @@ int MainWindow::on_tableWidget_cellClicked(int row)
     QTableWidgetItem *editItem1 = ui->tableWidget->item(row,1);
     ui->addTodo->setText(editItem1->text());
 
-   qDebug() << "Success clicked bar"<<endl;
+    write_file();
+    qDebug() << "Success clicked bar"<<endl;
 }
 
 
@@ -125,6 +139,8 @@ void MainWindow::on_saveBtn_clicked()
     // colum 2
     ui->tableWidget->setItem ( ui->tableWidget->currentRow(), 1,
                              new QTableWidgetItem(ui -> addTodo -> text()));
+
+    write_file();
 }
 
 

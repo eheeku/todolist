@@ -1,3 +1,4 @@
-57 hello
-22 this is file
-98 wow hello
+57|hello
+22|this is file
+98|wow hello
+30|안녕
