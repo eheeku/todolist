@@ -30,26 +30,24 @@ MainWindow::~MainWindow()
 void MainWindow::read_file()
 {
     QString ApplicationPath=QApplication::applicationDirPath();
-    qDebug() << ApplicationPath;
     QFile File(ApplicationPath+"/../todolist/DataFile/inputData.txt");
-    if(!File.open(QFile::ReadOnly|QFile::Text)) // 읽기 전용, 텍스트로 파일 열기
+
+    if(!File.open(QFile::ReadOnly|QFile::Text))
         {
-        if(!File.exists()) // 파일이 존재하지 않으면...
-            { // 파일이 존재하지 않으면...여기에 동작 적용
-                qDebug() <<"no file" << endl;
-            }
-        else
-            {
-                qDebug() <<"do not open file" << endl;
-                // 파일을 열수 없거나 파일 손상 등 여러 요인작용...
-            }
+        if(!File.exists()){ qDebug() <<"no file" << endl; }
+
+        else {qDebug() <<"do not open file" << endl;}
         }
-    QTextStream OpenFile(&File);QString ConfigText;while(!OpenFile.atEnd()) // 파일 끝까지 읽어서
+
+    QTextStream OpenFile(&File);
+    QString ConfigText;
+    QStringList textList;
+    while(!OpenFile.atEnd())
     {
-        ConfigText=OpenFile.readLine(); // 한라인씩 읽어서 변수에 적용
-        qDebug () << ConfigText << endl;
+        textList = OpenFile.readLine().split(" ");
+        qDebug () << textList[0].toUInt() <<textList[1] << endl;
     }
-    File.close(); // 파일닫기
+    File.close();
 }
 
 void MainWindow::on_addTask_clicked()
