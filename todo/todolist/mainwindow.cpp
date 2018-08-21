@@ -45,7 +45,20 @@ void MainWindow::read_file()
     while(!OpenFile.atEnd())
     {
         textList = OpenFile.readLine().split(" ");
-        qDebug () << textList[0].toUInt() <<textList[1] << endl;
+        ui->tableWidget->insertRow( ui->tableWidget->rowCount());
+
+        // colum 1
+        QProgressBar *mybar = new QProgressBar(ui->tableWidget);
+        mybar-> setValue(textList[0].toInt());
+        ui->tableWidget->setCellWidget( ui -> tableWidget -> rowCount()-1 ,0, mybar);
+
+        // colum 2
+        ui->tableWidget->setItem ( ui->tableWidget->rowCount()-1, 1,
+                                 new QTableWidgetItem(textList[1]));
+        ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+        qDebug () << "success read file data :";
+        qDebug () << textList[0].toInt() <<textList[1] << endl;
     }
     File.close();
 }
