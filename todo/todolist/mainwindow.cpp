@@ -43,13 +43,9 @@ void MainWindow::on_addTask_clicked()
              << "text addr:" <<ui->tableWidget->item(ui->tableWidget->rowCount()-1, 1)<<endl;
 }
 
-bool MainWindow::on_delete_2_clicked()
+int MainWindow::on_tableWidget_cellClicked(int row)
 {
-    return false;
-}
 
-void MainWindow::on_tableWidget_cellClicked(int row)
-{
     //column0 edit
     ui->mainslider->setValue((qobject_cast<QProgressBar*>(ui->tableWidget->cellWidget(row,0)))->value());
 
@@ -61,7 +57,5 @@ void MainWindow::on_tableWidget_cellClicked(int row)
    qDebug() << "Success clicked bar"<<endl;
 }
 
-void MainWindow::on_saveBtn_clicked()
-{
 
-}
+void MainWindow::on_removeBtn_clicked(){ui->tableWidget->removeRow(ui->tableWidget->currentRow());}
