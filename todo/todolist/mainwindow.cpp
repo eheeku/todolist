@@ -51,7 +51,6 @@ int MainWindow::on_tableWidget_cellClicked(int row)
 
     //colum1 edit
     QTableWidgetItem *editItem1 = ui->tableWidget->item(row,1);
-    qDebug() <<"2";
     ui->addTodo->setText(editItem1->text());
 
    qDebug() << "Success clicked bar"<<endl;
@@ -59,3 +58,15 @@ int MainWindow::on_tableWidget_cellClicked(int row)
 
 
 void MainWindow::on_removeBtn_clicked(){ui->tableWidget->removeRow(ui->tableWidget->currentRow());}
+
+void MainWindow::on_saveBtn_clicked()
+{
+    // get click row : ui->tableWidget->currentRow()
+    // colum 1
+    QProgressBar *mybar = new QProgressBar(ui->tableWidget);
+    mybar-> setValue(ui->mainslider->value());
+    ui->tableWidget->setCellWidget( ui->tableWidget->currentRow() ,0, mybar);
+    // colum 2
+    ui->tableWidget->setItem ( ui->tableWidget->currentRow(), 1,
+                             new QTableWidgetItem(ui -> addTodo -> text()));
+}
