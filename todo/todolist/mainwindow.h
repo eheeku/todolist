@@ -24,7 +24,9 @@ private slots:
 
     void on_addTask_clicked();
 
-    void on_tableWidget_cellClicked(int row, int column);
+    void on_tableWidget_cellClicked(int row);
+
+    bool on_delete_2_clicked();
 
 private:
     Ui::MainWindow *ui;
