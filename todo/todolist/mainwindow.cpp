@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
      ui->tableWidget->setColumnWidth(1,600);
 
      read_file();
+     write_file();
 }
 
 MainWindow::~MainWindow()
@@ -61,6 +62,21 @@ void MainWindow::read_file()
         qDebug () << textList[0].toInt() <<textList[1] << endl;
     }
     File.close();
+}
+
+
+
+void MainWindow::write_file()
+{
+    QString ApplicationPath=QApplication::applicationDirPath();
+    QFile File(ApplicationPath+"/../todolist/DataFile/outputData.txt");
+
+    File.open(QFile::WriteOnly|QFile::Append|QFile::Text);
+    QTextStream SaveFile(&File);
+    SaveFile <<"hello"<<"\n" <<endl;
+    SaveFile <<"한글깨짐"<<"\n" << endl;
+    File.close();
+
 }
 
 void MainWindow::on_addTask_clicked()
