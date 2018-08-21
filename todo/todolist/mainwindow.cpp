@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
      ui->tableWidget->horizontalHeader()->setResizeContentsPrecision(QHeaderView::ResizeToContents);
      ui->tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
 
+
      //table resize
      ui->tableWidget->setColumnWidth(0,305);
      ui->tableWidget->setColumnWidth(1,600);
@@ -30,7 +31,6 @@ void MainWindow::on_addTask_clicked()
     QProgressBar *mybar = new QProgressBar(ui->tableWidget);
     mybar-> setValue(ui->mainslider->value());
     ui->tableWidget->setCellWidget( ui -> tableWidget -> rowCount()-1 ,0, mybar);
-
     // colum 2
     ui->tableWidget->setItem ( ui->tableWidget->rowCount()-1, 1,
                              new QTableWidgetItem(ui -> addTodo -> text()));
@@ -43,14 +43,19 @@ void MainWindow::on_addTask_clicked()
              << "text addr:" <<ui->tableWidget->item(ui->tableWidget->rowCount()-1, 1)<<endl;
 }
 
-void MainWindow::on_tableWidget_cellClicked(int row, int column)
+bool MainWindow::on_delete_2_clicked()
 {
+    return false;
+}
 
+void MainWindow::on_tableWidget_cellClicked(int row)
+{
     //column0 edit
-    ui->mainslider->setValue((qobject_cast<QProgressBar*>(ui->tableWidget->cellWidget(row,column-1)))->value());
+    ui->mainslider->setValue((qobject_cast<QProgressBar*>(ui->tableWidget->cellWidget(row,0)))->value());
 
     //colum1 edit
-    QTableWidgetItem *editItem1 = ui->tableWidget->item(row,column);
+    QTableWidgetItem *editItem1 = ui->tableWidget->item(row,1);
+    qDebug() <<"2";
     ui->addTodo->setText(editItem1->text());
 
    qDebug() << "Success clicked bar"<<endl;
@@ -60,4 +65,3 @@ void MainWindow::on_saveBtn_clicked()
 {
 
 }
-
