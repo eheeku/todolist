@@ -29,7 +29,7 @@ private slots:
     void on_removeBtn_clicked();
 
     void on_saveBtn_clicked();
-
+    void read_file();
 
 private:
     Ui::MainWindow *ui;
