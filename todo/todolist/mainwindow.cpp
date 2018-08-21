@@ -25,13 +25,10 @@ MainWindow::~MainWindow()
 void MainWindow::on_addTask_clicked()
 {
     ui->tableWidget->insertRow( ui->tableWidget->rowCount());
-    // colum 1
 
+    // colum 1
     QProgressBar *mybar = new QProgressBar(ui->tableWidget);
     mybar-> setValue(ui->mainslider->value());
-    qDebug() << "mybar addr:"<<&mybar;
-
-
     ui->tableWidget->setCellWidget( ui -> tableWidget -> rowCount()-1 ,0, mybar);
 
     // colum 2
@@ -48,15 +45,15 @@ void MainWindow::on_addTask_clicked()
 
 void MainWindow::on_tableWidget_cellClicked(int row, int column)
 {
+
+    //column0 edit
+    ui->mainslider->setValue((qobject_cast<QProgressBar*>(ui->tableWidget->cellWidget(row,column-1)))->value());
+
     //colum1 edit
     QTableWidgetItem *editItem1 = ui->tableWidget->item(row,column);
     ui->addTodo->setText(editItem1->text());
 
-    //column0 edit
-   QProgressBar *mybar = new QProgressBar(ui->tableWidget->cellWidget(row,column+1));
-   ui->mainslider->setValue(mybar->value());
-   qDebug() <<"progressBar Get Value:"<<mybar->value();
-    //=progress<QProgressBar*>(ui->tableWidget->cellWidget(row,column+1));
+   qDebug() << "Success clicked bar"<<endl;
 }
 
 void MainWindow::on_saveBtn_clicked()
