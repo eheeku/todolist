@@ -32,6 +32,8 @@ private slots:
     void read_file();
     void write_file();
 
+    void on_commandLinkButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     //void createMenus();
