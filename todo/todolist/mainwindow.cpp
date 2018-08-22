@@ -3,6 +3,9 @@
 //#include <QMenuBar>
 #include <iostream>
 
+#include <qdesktopservices.h>
+#include <QUrl>
+
 #include <qprogressbar.h>
 #include <QFile>
 
@@ -152,3 +155,9 @@ void MainWindow::createMenus(){
 
 }
 */
+void MainWindow::on_commandLinkButton_clicked()
+{
+    QString link = "https://github.com/eheeku";
+    QDesktopServices::openUrl(QUrl(link));
+
+}
