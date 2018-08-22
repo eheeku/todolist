@@ -1,4 +1,2 @@
 57|hello
-22|this is file
-98|wow hello
-30|안녕
+70|의미있는 당신의 하루를 만들어보세요
