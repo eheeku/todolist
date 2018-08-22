@@ -15,7 +15,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
- //   ui->tableWidget->setColumnWidth(0,this->width()*2/3);
      ui->tableWidget->horizontalHeader()->setResizeContentsPrecision(QHeaderView::ResizeToContents);
      ui->tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
      //table resize
@@ -62,15 +61,15 @@ void MainWindow::read_file()
         ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
         qDebug () << "success read file data :";
-        qDebug () << textList[0].toInt() <<textList[1] << endl;
+        //qDebug () << textList[0].toInt() <<textList[1] << endl;
     }
     File.close();
 }
 
 
-QString StrToQString(char *str){
-    return QString::fromUtf8(str,strlen(str));
-}
+//QString StrToQString(char *str){
+//    return QString::fromUtf8(str,strlen(str));
+//}
 
 void MainWindow::write_file()
 {
@@ -130,7 +129,7 @@ int MainWindow::on_tableWidget_cellClicked(int row)
 }
 
 
-void MainWindow::on_removeBtn_clicked(){ui->tableWidget->removeRow(ui->tableWidget->currentRow());}
+void MainWindow::on_removeBtn_clicked(){ui->tableWidget->removeRow(ui->tableWidget->currentRow()); write_file();}
 
 void MainWindow::on_saveBtn_clicked()
 {

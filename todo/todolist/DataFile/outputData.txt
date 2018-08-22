@@ -1,4 +1,2 @@
-57|hello
-22|this is file
-98|wow hello
-30|안녕
+80|hello im eheeku
+12|this is todolist 
